@@ -75,34 +75,34 @@ public class Analizador {
 					if(oracion.matches("([A-Za-z]|[_][A-Za-z])[\\w]+"))
 					{
 						if(oracion.matches("[A-Z]{4}[0-9]{6}[HM][A-Z]{5}[0-9]{2}"))
-							textField.setText("Tercer Ejercicio");
+							textField.setText("Se ha validado una CURP");
 						else
-							textField.setText("Segundo Ejercicio");
+							textField.setText("Se ha validado una Variable");
 					}
 					else if(oracion.matches("([0][1-9]|[1-9]|[1][0-2])(:)([0-5][0-9])(\\s)?(am)|(pm)"))
 					{
-						textField.setText("Primer Ejercicio");
+						textField.setText("Se ha validado una Hora");
 					}
 					else if(oracion.matches("[+-]?[0-9]*([.]([0]*[1-9]*|[1-9]*[0-9]*))*"))
 					{
 						if(oracion.matches("([0-1])*[1]([0-1])*[1]([0-1])*[1]([0-1])*[1]([0-1])*"))
 						{
-							textField.setText("Sexto Ejercicio");
+							textField.setText("Se ha validado un número Binario");
 						}
 						else
-							textField.setText("Cuarto Ejercicio");
+							textField.setText("Se ha validado un número Real");
 					}
 					else if(oracion.matches("[(]([2-9]{3}|[2-9]{2})[)][0-9]{3}[-][0-9]{4}"))
 					{
-						textField.setText("Quinto Ejercicio");
+						textField.setText("Se ha validado un número teléfonico de México");
 					}
 					else if(oracion.matches("[a-zA-Z]([\\w]|[\\.])*@[\\.]([A-Za-z]|[\\.])*[a-zA-Z]"))
 					{
-						textField.setText("Septimo Ejercicio");
+						textField.setText("Se ha validado un correo");
 					}
 					else
 					{
-						textField.setText("No coincide con ninguno de los ejercicios");
+						textField.setText("No coincide con ninguna de las validaciones anteriores");
 					}
 					oracion = "";
 				}
@@ -112,6 +112,7 @@ public class Analizador {
 		frame.getContentPane().add(textPane);
 		
 		textField = new JTextField();
+		textField.setEditable(false);
 		textField.setBounds(396, 12, 114, 65);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
