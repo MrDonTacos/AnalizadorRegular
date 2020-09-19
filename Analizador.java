@@ -54,10 +54,11 @@ public class Analizador {
 		textPane.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
-				
+				//Se verifica el input entrante no sea un Enter 
 				if(e.getKeyChar() != '\n')
+					//Se verifica si el input entrante es un backspace
 					if(e.getKeyChar() == '\b')
-					{						
+					{	//En caso de serlo, elimina la última letra de la oración					
 						if(oracion.length()>0)
 						{
 							StringBuffer sb = new StringBuffer(oracion); 
@@ -65,8 +66,10 @@ public class Analizador {
 							oracion = sb.toString();
 						}
 					}
+					//En caso de no ser un backspace se concatena el valor entrante al string
 					else
 					oracion += e.getKeyChar();
+				//En caso de que la tecla sea un enter, se verifica todo lo que se almacenó en la oración
 				else
 				{
 					if(oracion.matches("([A-Za-z]|[_][A-Za-z])[\\w]+"))
@@ -96,10 +99,6 @@ public class Analizador {
 					else if(oracion.matches("[a-zA-Z]([\\w]|[\\.])*@[\\.]([A-Za-z]|[\\.])*[a-zA-Z]"))
 					{
 						textField.setText("Septimo Ejercicio");
-					}
-					else if(oracion.matches("@"))
-					{
-						textField.setText("Un arroba que loco");
 					}
 					else
 					{
