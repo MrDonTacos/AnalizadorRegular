@@ -54,6 +54,7 @@ public class Analizador {
 		textPane.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
+				
 				if(e.getKeyChar() != '\n')
 					if(e.getKeyChar() == '\b')
 					{						
@@ -81,7 +82,7 @@ public class Analizador {
 					}
 					else if(oracion.matches("[+-]?[0-9]*([.]([0]*[1-9]*|[1-9]*[0-9]*))*"))
 					{
-						if(oracion.matches("([0]|[1])*[1]([0]|[1])*[1]([0]|[1])*[1]([0]|[1])*[1]([0]|[1])*"))
+						if(oracion.matches("([0-1])*[1]([0-1])*[1]([0-1])*[1]([0-1])*[1]([0-1])*"))
 						{
 							textField.setText("Sexto Ejercicio");
 						}
